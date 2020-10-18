@@ -2,9 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:component-scan base-package="com.msh.www.service"/>
+
 
     <!--事务管理器-->
     <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -12,4 +13,20 @@
     </bean>
     <!--事务注解-->
     <tx:annotation-driven/>
+    <!--加载事务-->
+    <!--<bean class="com.baomidou.mybatisplus.extension.service.impl.ServiceImpl"></bean>-->
+    <!--因为mybatis-plus没有进行切面编程 没有事务  所以对所有的方法进行添加事务-->
+    <!--<tx:advice transaction-manager="transactionManager" id="myAdvice">-->
+        <!--<tx:attributes>-->
+            <!--<tx:method name="get*"/>-->
+            <!--<tx:method name="select*"/>-->
+            <!--<tx:method name="remove*"/>-->
+            <!--<tx:method name="update*"/>-->
+            <!--<tx:method name="delete*"/>-->
+        <!--</tx:attributes>-->
+    <!--</tx:advice>-->
+
+    <!--<aop:config>-->
+        <!--<aop:advisor advice-ref="myAdvice" pointcut="execution(* com.baomidou.mybatisplus.extension.service.impl.*.*(..))"/>-->
+    <!--</aop:config>-->
 </beans>

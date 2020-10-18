@@ -19,12 +19,24 @@
     </bean>
     <!--sqlSession spring本来自带的-->
     <!--<bean id="factoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">-->
-        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--<property name="dataSource" ref="dataSource"/>-->
     <!--</bean>-->
 
 
     <!--代码生成器 所需的sqlSessionFactory-->
     <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
+        <!--日志打印-->
+        <!--<property name="configuration">-->
+        <!--<bean class="com.baomidou.mybatisplus.core.MybatisConfiguration">-->
+        <!--<property name="logImpl" value="org.apache.ibatis.logging.log4j2.Log4j2Impl"/>-->
+        <!--</bean>-->
+        <!--</property>-->
+        <property name="plugins">
+            <array>
+                <bean class="com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor">
+                </bean>
+            </array>
+        </property>
     </bean>
 </beans>

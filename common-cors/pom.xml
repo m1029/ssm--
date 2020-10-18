@@ -9,24 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ssm-entity</artifactId>
+    <artifactId>common-cors</artifactId>
 
     <dependencies>
-        <!--lombok所需jar包-->
+        <!--跨域依赖的包-->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.0</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!--代码生成器所需jar包   实体类遵循与数据库表名 以及属性名一致-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus</artifactId>
-            <version>3.3.0</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.1.9.RELEASE</version>
         </dependency>
     </dependencies>
-
 
 </project>

@@ -13,6 +13,7 @@
         <module>ssm-mapper</module>
         <module>ssm-service</module>
         <module>ssm-web</module>
+        <module>common-cors</module>
     </modules>
 
 

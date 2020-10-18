@@ -36,6 +36,12 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.9.10</version>
         </dependency>
+        <!--加载跨域-->
+        <dependency>
+            <groupId>com.msh.www</groupId>
+            <artifactId>common-cors</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

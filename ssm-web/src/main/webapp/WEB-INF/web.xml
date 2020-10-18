@@ -8,6 +8,9 @@
         <param-value>classpath*:applicationContext-*.xml</param-value>
     </context-param>
     <!--开启监听-->
+    <!--<listener>-->
+        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+    <!--</listener>-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -25,4 +28,17 @@
         <servlet-name>dispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+    <!--加载跨域的-->
+    <filter>
+        <filter-name>myCorsFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <init-param>
+            <param-name>targetBeanName</param-name>
+            <param-value>corsFilter</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>myCorsFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>
