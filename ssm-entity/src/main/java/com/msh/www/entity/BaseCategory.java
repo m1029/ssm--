@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -37,5 +38,10 @@ public class BaseCategory implements Serializable {
      */
     private Integer pId;
 
+    private transient String pName;
+    /**
+     * 自定义分类的孩子
+     */
+    private transient List<BaseCategory> children;
 
 }

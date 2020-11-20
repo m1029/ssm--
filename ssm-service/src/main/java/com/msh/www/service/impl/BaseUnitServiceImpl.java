@@ -2,6 +2,7 @@ package com.msh.www.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.msh.www.entity.BaseUnit;
+import com.msh.www.http.PageResult;
 import com.msh.www.mapper.BaseUnitMapper;
 import com.msh.www.service.IBaseUnitService;
 import org.springframework.stereotype.Service;
@@ -39,8 +40,10 @@ public class BaseUnitServiceImpl  implements IBaseUnitService {
      * @return
      */
     @Override
-    public IPage<BaseUnit> findByPage(IPage<BaseUnit> page) {
-        return baseUnitMapper.selectPage(page,null);
+    public PageResult findByPage(IPage<BaseUnit> page) {
+        IPage<BaseUnit> baseUnitIPage = baseUnitMapper.selectPage(page, null);
+
+        return PageResult.instance(baseUnitIPage.getRecords(),baseUnitIPage.getTotal());
     }
 
     /**

@@ -2,6 +2,7 @@ package com.msh.www.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.msh.www.entity.BaseGood;
+import com.msh.www.http.PageResult;
 
 import java.io.Serializable;
 import java.util.List;
@@ -27,7 +28,7 @@ public interface IBaseGoodService{
      * @param page 将currentPage pageSize封装成一个对象
      * @return
      */
-    IPage<BaseGood> pageList(IPage<BaseGood> page);
+    PageResult pageList(IPage<BaseGood> page);
 
     /**
      * 通过id查询

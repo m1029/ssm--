@@ -2,10 +2,10 @@ package com.msh.www.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.msh.www.entity.BaseCustomer;
+import com.msh.www.http.PageResult;
 import com.msh.www.mapper.BaseCustomerMapper;
 import com.msh.www.service.IBaseCustomerService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
@@ -40,9 +40,9 @@ public class BaseCustomerServiceImpl implements IBaseCustomerService {
      * @return
      */
     @Override
-    public IPage<BaseCustomer> pageList(IPage<BaseCustomer> page) {
+    public PageResult pageList(IPage<BaseCustomer> page) {
         IPage<BaseCustomer> baseCustomerIPage = baseCustomerMapper.selectPage(page, null);
-        return baseCustomerIPage;
+        return PageResult.instance(baseCustomerIPage.getRecords(),baseCustomerIPage.getTotal());
     }
 
     /**

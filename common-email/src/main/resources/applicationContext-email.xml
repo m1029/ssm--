@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.msh.www.email"/>
+
+    <context:property-placeholder location="classpath:mail.properties" ignore-unresolvable="true"/>
+    <bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="1990291387@qq.com"/>
+    </bean>
+
+    <bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="username" value="${mail.userName}"/>
+        <!--授权码-->
+        <property name="password" value="${mail.password}"/>
+        <!--服务器地址-->
+        <property name="host" value="${mail.host}"/>
+        <!--防止乱码-->
+        <property name="defaultEncoding" value="utf-8"/>
+    </bean>
+
+</beans>

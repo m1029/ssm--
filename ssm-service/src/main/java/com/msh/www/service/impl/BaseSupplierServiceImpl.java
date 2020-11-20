@@ -2,6 +2,7 @@ package com.msh.www.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.msh.www.entity.BaseSupplier;
+import com.msh.www.http.PageResult;
 import com.msh.www.mapper.BaseSupplierMapper;
 import com.msh.www.service.IBaseSupplierService;
 import org.springframework.stereotype.Service;
@@ -40,8 +41,10 @@ public class BaseSupplierServiceImpl implements IBaseSupplierService {
      * @return
      */
     @Override
-    public IPage<BaseSupplier> pageList(IPage<BaseSupplier> page) {
-        return baseSupplierMapper.selectPage(page,null);
+    public PageResult pageList(IPage<BaseSupplier> page) {
+        IPage<BaseSupplier> baseSupplierIPage = baseSupplierMapper.selectPage(page, null);
+
+        return PageResult.instance(baseSupplierIPage.getRecords(),baseSupplierIPage.getTotal());
     }
 
     /**

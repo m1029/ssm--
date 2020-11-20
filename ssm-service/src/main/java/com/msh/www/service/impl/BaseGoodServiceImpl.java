@@ -2,10 +2,10 @@ package com.msh.www.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.msh.www.entity.BaseGood;
+import com.msh.www.http.PageResult;
 import com.msh.www.mapper.BaseGoodMapper;
 import com.msh.www.service.IBaseGoodService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
@@ -41,8 +41,10 @@ public class BaseGoodServiceImpl implements IBaseGoodService {
      * @return
      */
     @Override
-    public IPage<BaseGood> pageList(IPage<BaseGood> page) {
-        return baseGoodMapper.selectPage(page,null);
+    public PageResult pageList(IPage<BaseGood> page) {
+        IPage<BaseGood> baseGoodIPage = baseGoodMapper.selectPage(page, null);
+
+        return PageResult.instance(baseGoodIPage.getRecords(),baseGoodIPage.getTotal());
     }
 
     /**

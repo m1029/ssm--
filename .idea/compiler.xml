@@ -6,7 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="common-aliyun-upload" />
         <module name="common-cors" />
+        <module name="common-email" />
+        <module name="common-getBean" />
+        <module name="common-threadpool" />
+        <module name="common-useragent" />
+        <module name="common-valicator" />
         <module name="ssm-entity" />
         <module name="ssm-mapper" />
         <module name="ssm-service" />

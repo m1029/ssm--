@@ -1,6 +1,5 @@
 package com.msh.www.http;
 
-import javax.xml.crypto.Data;
 import java.util.HashMap;
 
 /**
@@ -59,6 +58,19 @@ public class AxiosResult extends HashMap<String,Object> {
      */
     public static AxiosResult error(AxiosStatus axiosStatus){
         return new AxiosResult(axiosStatus);
+    }
+
+    /**
+     * 返回携带错误信息的状态
+     * @param axiosStatus
+     * @param obj
+     * @return
+     */
+    public static AxiosResult error(AxiosStatus axiosStatus, Object obj){
+
+        AxiosResult axiosResult = new AxiosResult(axiosStatus);
+        axiosResult.put(DATA,obj);
+        return axiosResult;
     }
 
     /**

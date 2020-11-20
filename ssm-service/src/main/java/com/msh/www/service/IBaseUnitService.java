@@ -2,6 +2,7 @@ package com.msh.www.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.msh.www.entity.BaseUnit;
+import com.msh.www.http.PageResult;
 
 import java.io.Serializable;
 import java.util.List;
@@ -27,7 +28,7 @@ public interface IBaseUnitService{
      * @param page 封装为一个对象
      * @return
      */
-   IPage<BaseUnit> findByPage(IPage<BaseUnit> page);
+    PageResult findByPage(IPage<BaseUnit> page);
 
     /**
      * 通过id查询

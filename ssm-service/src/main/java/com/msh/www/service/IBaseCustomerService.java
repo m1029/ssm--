@@ -2,6 +2,7 @@ package com.msh.www.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.msh.www.entity.BaseCustomer;
+import com.msh.www.http.PageResult;
 
 import java.io.Serializable;
 import java.util.List;
@@ -28,7 +29,7 @@ public interface IBaseCustomerService{
      * @param page 将currentPage pageSize封装成一个对象
      * @return
      */
-    IPage<BaseCustomer> pageList(IPage<BaseCustomer> page);
+    PageResult pageList(IPage<BaseCustomer> page);
 
     /**
      * 通过id查询

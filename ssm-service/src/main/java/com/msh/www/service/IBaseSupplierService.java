@@ -2,6 +2,7 @@ package com.msh.www.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.msh.www.entity.BaseSupplier;
+import com.msh.www.http.PageResult;
 
 import java.io.Serializable;
 import java.util.List;
@@ -27,7 +28,7 @@ public interface IBaseSupplierService {
      * @param page
      * @return
      */
-    IPage<BaseSupplier> pageList(IPage<BaseSupplier> page);
+    PageResult pageList(IPage<BaseSupplier> page);
 
     /**
      * 通过id查询

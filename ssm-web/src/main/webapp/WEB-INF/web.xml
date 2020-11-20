@@ -28,7 +28,7 @@
         <servlet-name>dispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    <!--加载跨域的-->
+    <!--加载跨域common-cors层-->
     <filter>
         <filter-name>myCorsFilter</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>

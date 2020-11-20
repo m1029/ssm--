@@ -2,6 +2,7 @@ package com.msh.www.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.msh.www.entity.BaseCategory;
+import com.msh.www.http.PageResult;
 
 import java.io.Serializable;
 import java.util.List;
@@ -27,7 +28,7 @@ public interface IBaseCategoryService{
      * @param page 封装成为实体类
      * @return
      */
-    IPage<BaseCategory> pageList(IPage<BaseCategory> page);
+    PageResult pageList(IPage<BaseCategory> page);
 
     /**
      * 通过id查询
@@ -53,4 +54,11 @@ public interface IBaseCategoryService{
      * @param id 数据库的主键
      */
     void deleteById(Serializable id);
+
+    /**
+     * 获得分类tree
+     * @return
+     */
+    List<BaseCategory> getCategoryTree();
+
 }

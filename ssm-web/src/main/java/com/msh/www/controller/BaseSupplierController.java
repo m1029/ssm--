@@ -1,11 +1,9 @@
 package com.msh.www.controller;
 
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.msh.www.entity.BaseSupplier;
 import com.msh.www.http.AxiosResult;
-import com.msh.www.http.PageResult;
 import com.msh.www.service.IBaseSupplierService;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,8 +45,7 @@ public class BaseSupplierController {
     @GetMapping("page")
     public AxiosResult pageList(@RequestParam(defaultValue = "1") int currentPage,@RequestParam(defaultValue = "5") int pageSize){
         Page<BaseSupplier> page = new Page<>(currentPage,pageSize);
-        IPage<BaseSupplier> iPage = iBaseSupplierService.pageList(page);
-        return AxiosResult.success(PageResult.instance(iPage.getRecords(),iPage.getTotal()));
+        return AxiosResult.success(iBaseSupplierService.pageList(page));
     }
 
     /**

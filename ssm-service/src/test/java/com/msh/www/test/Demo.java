@@ -1,11 +1,7 @@
 package com.msh.www.test;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.msh.www.entity.BaseCategory;
-import com.msh.www.mapper.BaseCategoryMapper;
 import com.msh.www.service.IBaseCategoryService;
+import com.msh.www.service.ISysMenuService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,11 +32,15 @@ public class Demo {
     @Autowired
     private IBaseCategoryService iBaseCategoryService;
 
+    @Autowired
+    private ISysMenuService iSysMenuService;
+
     @Test
     public void test(){
-
-        Page<BaseCategory> page = new Page<>(1,3);
-        System.out.println(iBaseCategoryService.pageList(page));
+//
+//        Page<BaseCategory> page = new Page<>(1,3);
+//        System.out.println(iBaseCategoryService.pageList(page));
+        System.out.println(iSysMenuService.getAllMenuTree());
     }
 
 }

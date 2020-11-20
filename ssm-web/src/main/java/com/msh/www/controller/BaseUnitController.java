@@ -1,11 +1,9 @@
 package com.msh.www.controller;
 
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.msh.www.entity.BaseUnit;
 import com.msh.www.http.AxiosResult;
-import com.msh.www.http.PageResult;
 import com.msh.www.service.IBaseUnitService;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,8 +46,8 @@ public class BaseUnitController {
     @GetMapping("page")
     public AxiosResult pageList(@RequestParam(defaultValue = "1") int currentPage,@RequestParam(defaultValue = "5") int pageSize){
         Page<BaseUnit> page = new Page<>(currentPage,pageSize);
-        IPage<BaseUnit> iPage = iBaseUnitService.findByPage(page);
-        return AxiosResult.success(PageResult.instance(iPage.getRecords(),iPage.getTotal()));
+
+        return AxiosResult.success(iBaseUnitService.findByPage(page));
     }
 
     /**
